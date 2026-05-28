@@ -22,6 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
+    void updateBestScores();
 private:
     void startSelection();
 
@@ -36,6 +37,13 @@ private:
     QLabel *timerLabel_ = nullptr;
     QLabel *minesLabel_ = nullptr;
     QTimer *timer_ = nullptr;
+
+
+    int bestScores_[5] = {-1,-1,-1,-1,-1};
+    void saveFile() const;
+    void loadFile();
+    void showBestScores();
+    void clearBestScores();
 };
 
 #endif // MAINWINDOW_H
